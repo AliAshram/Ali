@@ -28,7 +28,6 @@ class TrafficGenerator:
 
         car_gen_steps = np.rint(car_gen_steps)  # round every value to int -> effective steps when a car will be generated
 
-        os.chdir("/home/ali/Documents/PyVenv/MY_Grad_Proj")
         # produce the file for cars generation, one car per line
         with open("Intersection/Env_route.rou.xml", "w") as routes:
             print("""<routes>
