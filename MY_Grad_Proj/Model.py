@@ -7,11 +7,7 @@ import sys
 from tensorflow import keras
 from keras import layers
 from keras import losses
-from keras import mixed_precision
 
-
-mixed_precision.set_global_policy('mixed_float16')
-print("mixed prscision on ")
 class TrainModel:
  
     def __init__(self, num_layers, width, batch_size, learning_rate, input_dim, output_dim):
