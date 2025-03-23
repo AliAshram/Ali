@@ -13,8 +13,7 @@ from Visualization import Visualization
 from Utils import import_train_configuration, set_sumo, set_train_path
 
 
-os.chdir("/home/ali/Documents/PyVenv/MY_Grad_Proj")
-print("Current working directory:", os.getcwd())
+
 if __name__ == "__main__":
 
     config = import_train_configuration(config_file='Training_settings.ini')
