@@ -7,7 +7,7 @@ import sys
 from tensorflow import keras
 from keras import layers
 from keras import losses
-rom keras import mixed_precision
+from keras import mixed_precision
 
 mixed_precision.set_global_policy(policy="mixed_float16") # set global policy to mixed precision
 class TrainModel:
