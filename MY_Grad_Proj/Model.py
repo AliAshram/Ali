@@ -7,7 +7,9 @@ import sys
 from tensorflow import keras
 from keras import layers
 from keras import losses
+rom keras import mixed_precision
 
+mixed_precision.set_global_policy(policy="mixed_float16") # set global policy to mixed precision
 class TrainModel:
  
     def __init__(self, num_layers, width, batch_size, learning_rate, input_dim, output_dim):
@@ -51,7 +53,12 @@ class TrainModel:
         """
         Train the nn using the updated q-values
         """
-        self._model.fit(states, q_sa, epochs=1, verbose=0)
+        #convert to tf datat 
+        dataset = tf.data.Dataset.from_tensor_slices((states, q_sa))
+        dataset = dataset.batch(self._batch_size)
+        dataset = dataset.prefetch(tf.data.AUTOTUNE)
+
+        self._model.fit(dataset, epochs=1, verbose=0)
 
 
     def save_model(self, path):
