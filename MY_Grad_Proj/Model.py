@@ -65,7 +65,7 @@ class TrainModel:
         """
         Save the current model in the folder as h5 file and a model architecture summary as png
         """
-        self._model.save(os.path.join(path, 'trained_model.h5'))
+        self._model.save(os.path.join(path, 'trained_model.keras'))
         keras.utils.plot_model(self._model, to_file=os.path.join(path, 'model_structure.png'), show_shapes=True, show_layer_names=True)
 
 
@@ -93,7 +93,7 @@ class TestModel:
         """
         Load the model stored in the folder specified by the model number, if it exists
         """
-        model_file_path = os.path.join(model_folder_path, 'trained_model.h5')
+        model_file_path = os.path.join(model_folder_path, 'trained_model.keras')
         
         if os.path.isfile(model_file_path):
             loaded_model = keras.models.load_model(model_file_path)

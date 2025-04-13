@@ -13,7 +13,7 @@ from Visualization import Visualization
 from Utils import import_train_configuration, set_sumo, set_train_path
 
 
-
+os.chdir("/home/ali/Documents/Ali/MY_Grad_Proj")
 if __name__ == "__main__":
 
     config = import_train_configuration(config_file='Training_settings.ini')
